@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 18, 18, 19),
+      // backgroundColor: const Color.fromARGB(255, 18, 18, 19),
       body: pages[indexClicked],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets.dart';
+import 'package:provider/provider.dart';
+import '../Widgets/app_view.dart';
+import '../Widgets/widgets.dart';
 
 class ServicesPage extends StatelessWidget {
   const ServicesPage({
@@ -9,9 +11,9 @@ class ServicesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 18, 18, 19),
+      backgroundColor: Provider.of<AppData>(context).settingsScaffoldColor,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(241, 8, 8, 8),
+        backgroundColor: Provider.of<AppData>(context).settingsAppBarColor,
         title: const Text('Quick Services'),
         centerTitle: true,
       ),
@@ -21,7 +23,7 @@ class ServicesPage extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               height: 240,
-              color: const Color.fromARGB(255, 40, 40, 41),
+              color: Provider.of<AppData>(context).settingsPrivacyContainerColor,
               child: Column(
                 children: const [
                   SectionTitle(text: 'Transfers'),
@@ -48,7 +50,7 @@ class ServicesPage extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               height: 240,
-              color: const Color.fromARGB(255, 40, 40, 41),
+              color: Provider.of<AppData>(context).settingsPrivacyContainerColor,
               child: Column(
                 children: const [
                   SectionTitle(text: 'Payments'),

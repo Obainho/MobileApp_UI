@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets.dart';
+import 'package:provider/provider.dart';
+import '../Widgets/app_view.dart';
+import '../Widgets/widgets.dart';
 
 class SupportPage extends StatelessWidget {
   const SupportPage({
@@ -9,9 +11,9 @@ class SupportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 18, 18, 19),
+      backgroundColor: Provider.of<AppData>(context).settingsScaffoldColor,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(241, 8, 8, 8),
+        backgroundColor: Provider.of<AppData>(context).settingsAppBarColor,
         title: const Text('Support'),
         centerTitle: true,
         bottom: PreferredSize(
@@ -23,7 +25,9 @@ class SupportPage extends StatelessWidget {
                 padding: EdgeInsets.only(right: 10, bottom: 5),
                 child: Text(
                   'App version: 2.2.0',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                     color: Colors.white,
+                  ),
                 ),
               ),
             ],
@@ -36,7 +40,7 @@ class SupportPage extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               height: 165,
-              color: const Color.fromARGB(255, 40, 40, 41),
+              color: Provider.of<AppData>(context).settingsPrivacyContainerColor,
               child: Column(
                 children: const [
                   SectionTitle(text: 'Support'),
@@ -57,7 +61,7 @@ class SupportPage extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               height: 240,
-              color: const Color.fromARGB(255, 40, 40, 41),
+              color: Provider.of<AppData>(context).settingsPrivacyContainerColor,
               child: Column(
                 children: const [
                   SectionTitle(text: 'Social Media'),
@@ -84,7 +88,7 @@ class SupportPage extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               height: 240,
-              color: const Color.fromARGB(255, 40, 40, 41),
+              color: Provider.of<AppData>(context).settingsPrivacyContainerColor,
               child: Column(
                 children: const [
                   SectionTitle(text: 'Call us'),
@@ -111,7 +115,7 @@ class SupportPage extends StatelessWidget {
             const SizedBox(height: 10),
             Container(
               height: 90,
-              color: const Color.fromARGB(255, 40, 40, 41),
+              color: Provider.of<AppData>(context).settingsPrivacyContainerColor,
               child: Column(
                 children: const [
                   SectionTitle(text: 'Transfers'),
