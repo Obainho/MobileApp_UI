@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../defaults.dart';
+import 'defaults.dart';
 
 class AppData with ChangeNotifier {
   ThemeData theme = ThemeData.light();
@@ -9,10 +9,10 @@ class AppData with ChangeNotifier {
   Color settingsAppBarColor = Defaults.bottomNavItemSelectedColor;
   Color settingsImageContainerColor = Defaults.bottomNavItemSelectedColor;
   Color settingsPrivacyContainerColor = Colors.white;
-  Color settingsPrivacyTextColor = Colors.black;
+  // Color settingsPrivacyTextColor = Colors.black;
   Color settingsAutologinIconContainerColor = const Color.fromARGB(255, 201, 224, 247);
   Color settingsAutologinIconColor = Colors.black45;
-  Color settingsAutologinTextColor = Colors.black;
+  // Color settingsAutologinTextColor = Colors.black;
   Color settingsThemeBoxColor = const Color.fromARGB(255, 199, 199, 204);
   Color settingsThemeBoxDarkColor = Colors.transparent;
   Color settingsThemeBoxLightButtonColor = Defaults.bottomNavItemSelectedColor;
@@ -51,10 +51,10 @@ class AppData with ChangeNotifier {
     settingsPrivacyContainerColor = dataColor;
     notifyListeners();
   }
-  void changesettingsPrivacyTextColor(Color dataColor) {
-    settingsPrivacyTextColor = dataColor;
-    notifyListeners();
-  }
+  // void changesettingsPrivacyTextColor(Color dataColor) {
+  //   settingsPrivacyTextColor = dataColor;
+  //   notifyListeners();
+  // }
   void changesettingsAutologinIconContainerColor(Color dataColor) {
     settingsAutologinIconContainerColor = dataColor;
     notifyListeners();
@@ -63,10 +63,10 @@ class AppData with ChangeNotifier {
     settingsAutologinIconColor = dataColor;
     notifyListeners();
   }
-  void changesettingsAutologinTextColor(Color dataColor) {
-    settingsAutologinTextColor = dataColor;
-    notifyListeners();
-  }
+  // void changesettingsAutologinTextColor(Color dataColor) {
+  //   settingsAutologinTextColor = dataColor;
+  //   notifyListeners();
+  // }
   void changeThemeDarkButtonTextColor(Color dataColor) {
     settingsDarkButtonTextColor = dataColor;
     notifyListeners();

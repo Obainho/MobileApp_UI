@@ -20,8 +20,12 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Center(
         child: ListView(
-          padding:
-              const EdgeInsets.only(top: 60, left: 20, right: 20, bottom: 30),
+          padding: const EdgeInsets.only(
+            top: 60,
+            left: 20,
+            right: 20,
+            bottom: 30,
+          ),
           children: [
             Row(
               children: [
@@ -45,58 +49,67 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                Text(
-                  "Welcome back, ",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    // color: Color.fromARGB(255, 151, 154, 156),
-                  ),
-                ),
-                Text(
-                  "Customer",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: Color.fromARGB(255, 2, 27, 255),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Welcome back ",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Customer",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Color.fromARGB(255, 2, 27, 255),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 30),
-            Container(
-              color: Provider.of<AppData>(context).loginTexfieldColor,
-              child: TextFormField(
-                keyboardType: TextInputType.text,
-                obscureText: true,
-                cursorColor: Colors.white10,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  floatingLabelBehavior: FloatingLabelBehavior.never,
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white10,
+            Consumer<AppData>(
+              builder: (context, value, child) {
+                return Container(
+                  color: value.loginTexfieldColor,
+                  child: TextFormField(
+                    keyboardType: TextInputType.text,
+                    obscureText: true,
+                    cursorColor: Colors.white10,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white10,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white10,
+                        ),
+                      ),
+                      border: OutlineInputBorder(),
+                      labelText: "Password",
+                      //helperText: 'No more than 8 characters.',
+                      labelStyle: TextStyle(
+                        color: Color.fromARGB(255, 166, 168, 168),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.lock_outline,
+                        size: 20,
+                        color: Color.fromARGB(255, 112, 112, 112),
+                      ),
+                      //floatingLabelBehavior: FloatingLabelBehavior.never,
                     ),
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.white10,
-                    ),
-                  ),
-                  border: OutlineInputBorder(),
-                  labelText: "Password",
-                  //helperText: 'No more than 8 characters.',
-                  labelStyle: TextStyle(
-                    color: Color.fromARGB(255, 166, 168, 168),
-                  ),
-                  prefixIcon: Icon(
-                    Icons.lock_outline,
-                    size: 20,
-                    color: Color.fromARGB(255, 112, 112, 112),
-                  ),
-                  //floatingLabelBehavior: FloatingLabelBehavior.never,
-                ),
-              ),
+                );
+              },
             ),
             const SizedBox(height: 10),
             Container(

@@ -1,4 +1,3 @@
-import 'package:bank_app/Widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../pages/mainpage.dart';
@@ -20,10 +19,14 @@ class ProfileLoginApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AppData(),
       builder: (context, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: Provider.of<AppData>(context).theme,
-          home: const MainPage(),
+        return Consumer<AppData>(
+          builder: (context, value, child) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: value.theme,
+              home: const MainPage(),
+            );
+          },
         );
       },
     );

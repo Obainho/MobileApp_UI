@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../defaults.dart';
+// import '../defaults.dart';
 import 'app_view.dart';
 
 class SectionTitle extends StatelessWidget {
@@ -17,9 +17,9 @@ class SectionTitle extends StatelessWidget {
         ),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 13,
-            color: Provider.of<AppData>(context).settingsPrivacyTextColor,
+            // color: context.watch<AppData>().settingsPrivacyTextColor,
           ),
         ),
       ],
@@ -48,45 +48,53 @@ class SectionTiles extends StatelessWidget {
       ),
       onPressed: () {},
       child: ListTile(
-        leading: Container(
-          height: 45,
-          width: 45,
-          decoration: BoxDecoration(
-            color: Provider.of<AppData>(context).settingsAutologinIconContainerColor,
-            shape: BoxShape.rectangle,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(5),
-            ),
-          ),
-          alignment: Alignment.center,
-          child: Image.asset(
-            image,
-            height: 25,
-            width: 25,
-            color: Provider.of<AppData>(context).settingsAutologinIconColor,
-          ),
+        leading: Consumer<AppData>(
+          builder: (context, value, child) {
+            return Container(
+              height: 45,
+              width: 45,
+              decoration: BoxDecoration(
+                color: value.settingsAutologinIconContainerColor,
+                shape: BoxShape.rectangle,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(5),
+                ),
+              ),
+              alignment: Alignment.center,
+              child: Image.asset(
+                image,
+                height: 25,
+                width: 25,
+                color: value.settingsAutologinIconColor,
+              ),
+            );
+          },
         ),
         title: Row(
           children: [
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 17,
-                color: Provider.of<AppData>(context).settingsAutologinTextColor,
+                // color: context.watch<AppData>().settingsAutologinTextColor,
                 //fontWeight: FontWeight.w400,
               ),
             ),
           ],
         ),
         trailing: icon
-            ? CircleAvatar(
-                radius: 15,
-                backgroundColor: Provider.of<AppData>(context).settingsAutologinIconContainerColor,
-                child: Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  size: 15,
-                  color: Provider.of<AppData>(context).settingsAutologinIconColor,
-                ),
+            ? Consumer<AppData>(
+                builder: (context, value, child) {
+                  return CircleAvatar(
+                    radius: 15,
+                    backgroundColor: value.settingsAutologinIconContainerColor,
+                    child: Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 15,
+                      color: value.settingsAutologinIconColor,
+                    ),
+                  );
+                },
               )
             : const SizedBox(),
       ),
@@ -101,12 +109,16 @@ class TileDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Divider(
-      height: 17,
-      thickness: 0.5,
-      color: Provider.of<AppData>(context).apptileDividersColor,
-      indent: 17,
-      endIndent: 17,
+    return Consumer<AppData>(
+      builder: (context, value, child) {
+        return Divider(
+          height: 17,
+          thickness: 0.5,
+          color: value.apptileDividersColor,
+          indent: 17,
+          endIndent: 17,
+        );
+      },
     );
   }
 }

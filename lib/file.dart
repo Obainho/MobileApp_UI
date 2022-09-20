@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           home: const MainPage(),
-          theme: Provider.of<AppDataa>(context).theme,
+          theme: context.watch<AppDataa>().theme,
         );
       },
     );
@@ -27,7 +27,6 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Building MainPage');
     return Scaffold(
       // backgroundColor: Provider.of<AppData>(context).color,
       appBar: AppBar(
@@ -37,17 +36,16 @@ class MainPage extends StatelessWidget {
           },
         ),
       ),
-      body: Screen4(),
+      body: const Screen4(),
     );
   }
 }
 
 class Screen4 extends StatelessWidget {
-  Screen4({Key? key}) : super(key: key);
+  const Screen4({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print('Building Screen4');
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
