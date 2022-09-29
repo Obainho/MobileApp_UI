@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
             bottom: 30,
           ),
           children: [
-            Row(
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'My Bank',
@@ -37,7 +37,6 @@ class _LoginPageState extends State<LoginPage> {
                     // color: Colors.white,
                   ),
                 ),
-                const SizedBox(width: 180),
                 const Image(
                   image: AssetImage(
                     'Assets/Images/flag.jpg',
